@@ -1,7 +1,6 @@
 using DeliveryApp.Domain.Repositories;
 using DeliveryApp.Infrastructure.Persistence;
 using DeliveryApp.Infrastructure.Persistence.Repositories;
-using DnsClient.Protocol;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
