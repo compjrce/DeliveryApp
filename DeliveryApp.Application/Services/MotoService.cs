@@ -5,9 +5,9 @@ namespace DeliveryApp.Application.Services;
 
 public class MotoService : IMotoService
 {
-    private readonly IMotoRepository _repository;
+    private readonly IMotoServiceRepository _repository;
 
-    public MotoService(IMotoRepository repository)
+    public MotoService(IMotoServiceRepository repository)
     {
         _repository = repository;
     }

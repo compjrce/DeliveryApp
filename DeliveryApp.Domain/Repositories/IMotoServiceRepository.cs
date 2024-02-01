@@ -2,7 +2,7 @@ using DeliveryApp.Domain.Entities;
 
 namespace DeliveryApp.Domain.Repositories;
 
-public interface IMotoRepository
+public interface IMotoServiceRepository
 {
     Task InsertMotoAsync(Moto moto);
 }
