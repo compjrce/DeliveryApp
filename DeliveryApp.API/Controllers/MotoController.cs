@@ -16,10 +16,19 @@ public class MotoController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(MotoInputModel model)
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    public async Task<IActionResult> InsertMotoAsync(MotoInputModel model)
     {
-        var id = _service.InsertMoto(model);
+        var id = await _service.InsertMotoAsync(model);
 
-        return Ok();
+        return CreatedAtAction("", id);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllAsync()
+    {
+        var listMoto = await _service.GetAllAsync();
+
+        return Ok(listMoto);
     }
 }

@@ -1,4 +1,5 @@
 using DeliveryApp.Application.InputModels;
+using DeliveryApp.Application.ViewModels;
 using DeliveryApp.Domain.Repositories;
 
 namespace DeliveryApp.Application.Services;
@@ -12,7 +13,12 @@ public class MotoService : IMotoService
         _repository = repository;
     }
 
-    public async Task<string> InsertMoto(MotoInputModel model)
+    public async Task<List<MotoViewModel>> GetAllAsync()
+    {
+        return MotoViewModel.FromEntity(_repository.GetAllAsync().Result);
+    }
+
+    public async Task<string> InsertMotoAsync(MotoInputModel model)
     {
         var moto = model.ToEntity();
 

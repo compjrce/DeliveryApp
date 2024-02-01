@@ -21,4 +21,16 @@ public class MotoViewModel
 
     public static MotoViewModel FromEntity(Moto moto) =>
         new MotoViewModel(moto.Id, moto.CreatedOn, moto.Year, moto.Model, moto.LicensePlate);
+
+    public static List<MotoViewModel> FromEntity(List<Moto> listMoto)
+    {
+        List<MotoViewModel> list = new();
+
+        foreach (var item in listMoto)
+        {
+            list.Add(new MotoViewModel(item.Id, item.CreatedOn, item.Year, item.Model, item.LicensePlate));
+        }
+
+        return list.ToList();
+    }
 }
