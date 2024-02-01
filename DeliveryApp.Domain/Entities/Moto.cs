@@ -2,14 +2,14 @@ namespace DeliveryApp.Domain.Entities;
 
 public class Moto : BaseEntity
 {
-    public Moto(int ano, string modelo, string placa)
+    public Moto(int year, string model, string licensePlate)
     {
-        Ano = ano;
-        Modelo = modelo;
-        Placa = placa;
+        Year = year;
+        Model = model;
+        LicensePlate = licensePlate;
     }
 
-    public int Ano { get; private set; }
-    public string Modelo { get; private set; }
-    public string Placa { get; private set; }
+    public int Year { get; private set; }
+    public string Model { get; private set; }
+    public string LicensePlate { get; private set; }
 }
