@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DeliveryApp.API.Controllers;
 
 [ApiController]
-[Route("delivery-app")]
+[Route("delivery-driver")]
 public class DeliveryDriverController : ControllerBase
 {
     private readonly IDeliveryDriverService _service;
