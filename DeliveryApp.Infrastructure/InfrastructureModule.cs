@@ -56,6 +56,7 @@ public static class InfrastructureModule
     public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
         services.AddScoped<IMotoServiceRepository, MotoServiceRepository>();
+        services.AddScoped<IDeliveryDriverServiceRepository, DeliveryDriverServiceRepository>();
 
         return services;
     }
