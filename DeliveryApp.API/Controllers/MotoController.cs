@@ -16,9 +16,9 @@ public class MotoController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> InsertMotoAsync(MotoInputModel model)
+    public async Task<IActionResult> InsertAsync(MotoInputModel model)
     {
-        var licensePlate = await _service.InsertMotoAsync(model);
+        var licensePlate = await _service.InsertAsync(model);
 
         return CreatedAtAction(nameof(GetByLicensePlateAsync), new { licensePlate }, model);
     }
@@ -40,5 +40,21 @@ public class MotoController : ControllerBase
             return NotFound();
 
         return Ok(moto);
+    }
+
+    [HttpPut("{licensePlate}")]
+    public async Task<IActionResult> UpdateLicensePlateAsync([FromBody] string newLicensePlate, string licensePlate)
+    {
+        await _service.UpdateLicensePlateAsync(newLicensePlate, licensePlate);
+
+        return Ok();
+    }
+
+    [HttpDelete("{licensePlate}")]
+    public async Task<IActionResult> DeleteAsync(string licensePlate)
+    {
+        await _service.DeleteAsync(licensePlate);
+
+        return Ok();
     }
 }

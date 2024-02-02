@@ -13,6 +13,11 @@ public class MotoService : IMotoService
         _repository = repository;
     }
 
+    public async Task DeleteAsync(string licensePlate)
+    {
+        await _repository.DeleteAsync(licensePlate);
+    }
+
     public async Task<List<MotoViewModel>> GetAllAsync()
     {
         return MotoViewModel.FromEntity(_repository.GetAllAsync().Result);
@@ -28,19 +33,17 @@ public class MotoService : IMotoService
         return MotoViewModel.FromEntity(moto);
     }
 
-    public async Task<string> InsertMotoAsync(MotoInputModel model)
+    public async Task<string> InsertAsync(MotoInputModel model)
     {
         var moto = model.ToEntity();
 
-        await _repository.InsertMotoAsync(moto);
+        await _repository.InsertAsync(moto);
 
         return moto.LicensePlate.ToString();
     }
 
-    public async Task<string> UpdateLicensePlateAsync(string newLicensePlate, string licensePlate)
+    public async Task UpdateLicensePlateAsync(string newLicensePlate, string licensePlate)
     {
         await _repository.UpdateLicensePlateAsync(newLicensePlate, licensePlate);
-
-        return newLicensePlate;
     }
 }

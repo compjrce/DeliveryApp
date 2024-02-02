@@ -13,6 +13,13 @@ public class MotoServiceRepository : IMotoServiceRepository
         _collection = database.GetCollection<Moto>("moto");
     }
 
+    public async Task DeleteAsync(string licensePlate)
+    {
+        var filter = Builders<Moto>.Filter.Eq(x => x.LicensePlate, licensePlate);
+
+        await _collection.FindOneAndDeleteAsync(filter);
+    }
+
     public async Task<List<Moto>> GetAllAsync()
     {
         var filter = Builders<Moto>.Filter.Empty;
@@ -27,7 +34,7 @@ public class MotoServiceRepository : IMotoServiceRepository
         return await _collection.Find(filter).FirstOrDefaultAsync();
     }
 
-    public async Task InsertMotoAsync(Moto moto)
+    public async Task InsertAsync(Moto moto)
     {
         await _collection.InsertOneAsync(moto);
     }

@@ -5,11 +5,13 @@ namespace DeliveryApp.Application.Services;
 
 public interface IMotoService
 {
-    Task<string> InsertMotoAsync(MotoInputModel model);
+    Task<string> InsertAsync(MotoInputModel model);
 
     Task<List<MotoViewModel>> GetAllAsync();
 
     Task<MotoViewModel> GetByLicensePlateAsync(string licensePlate);
 
-    Task<string> UpdateLicensePlateAsync(string newLicensePlate, string licensePlate);
+    Task UpdateLicensePlateAsync(string newLicensePlate, string licensePlate);
+
+    Task DeleteAsync(string licensePlate);
 }
