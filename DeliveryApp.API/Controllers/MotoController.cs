@@ -20,7 +20,7 @@ public class MotoController : ControllerBase
     {
         var licensePlate = await _service.InsertAsync(model);
 
-        return CreatedAtAction(nameof(GetByLicensePlateAsync), new { licensePlate }, model);
+        return CreatedAtAction(nameof(GetByLicensePlateAsync), new { licensePlate = licensePlate });
     }
 
     [HttpGet]
