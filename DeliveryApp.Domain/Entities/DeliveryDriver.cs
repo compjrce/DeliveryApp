@@ -18,6 +18,6 @@ public class DeliveryDriver : BaseEntity
     public DateTime BirthDate { get; private set; }
     public string DriverLicenseNumber { get; private set; }
     public EDriverLicenseType DriverLicenseType { get; private set; }
-    public byte[] DriverLicenseImage { get; set; }
+    public string DriverLicenseImage { get; set; }
     public bool CategoryAEnabled => DriverLicenseType == EDriverLicenseType.A || DriverLicenseType == EDriverLicenseType.AB;
 }

@@ -6,5 +6,5 @@ public interface IDeliveryDriverService
 {
     Task<string> InsertAsync(DeliveryDriverInputModel model);
 
-    Task UpdateDriverLicenseImageAsync(string driverLicenseNumber, byte[] driverLicenseImage);
+    Task UpdateDriverLicenseImageAsync(string driverLicenseNumber, string driverLicenseImage);
 }

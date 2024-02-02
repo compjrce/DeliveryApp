@@ -18,8 +18,11 @@ public class DeliveryDriverServiceRepository : IDeliveryDriverServiceRepository
         await _collection.InsertOneAsync(deliveryDriver);
     }
 
-    public Task UpdateDriverLicenseImageAsync(string driverLicenseNumber, byte[] driverLicenseImage)
+    public async Task UpdateDriverLicenseImageAsync(string driverLicenseNumber, string driverLicenseImage)
     {
-        throw new NotImplementedException();
+        var filter = Builders<DeliveryDriver>.Filter.Eq(x => x.DriverLicenseNumber, driverLicenseNumber);
+        var update = Builders<DeliveryDriver>.Update.Set(x => x.DriverLicenseImage, driverLicenseImage);
+
+        await _collection.FindOneAndUpdateAsync(filter, update);
     }
 }

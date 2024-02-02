@@ -21,8 +21,8 @@ public class DeliveryDriverService : IDeliveryDriverService
         return deliveryDriver.DriverLicenseNumber;
     }
 
-    public Task UpdateDriverLicenseImageAsync(string driverLicenseNumber, byte[] driverLicenseImage)
+    public async Task UpdateDriverLicenseImageAsync(string driverLicenseNumber, string driverLicenseImage)
     {
-        throw new NotImplementedException();
+        await _repository.UpdateDriverLicenseImageAsync(driverLicenseNumber, driverLicenseImage);
     }
 }
