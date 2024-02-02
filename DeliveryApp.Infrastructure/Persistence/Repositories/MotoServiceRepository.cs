@@ -20,8 +20,23 @@ public class MotoServiceRepository : IMotoServiceRepository
         return await _collection.Find(filter).ToListAsync();
     }
 
+    public async Task<Moto> GetByLicensePlateAsync(string licensePlate)
+    {
+        var filter = Builders<Moto>.Filter.Eq(x => x.LicensePlate, licensePlate);
+
+        return await _collection.Find(filter).FirstOrDefaultAsync();
+    }
+
     public async Task InsertMotoAsync(Moto moto)
     {
         await _collection.InsertOneAsync(moto);
+    }
+
+    public async Task UpdateLicensePlateAsync(string newLicensePlate, string licensePlate)
+    {
+        var filter = Builders<Moto>.Filter.Eq(x => x.LicensePlate, licensePlate);
+        var update = Builders<Moto>.Update.Set(x => x.LicensePlate, newLicensePlate);
+
+        await _collection.FindOneAndUpdateAsync(filter, update);
     }
 }

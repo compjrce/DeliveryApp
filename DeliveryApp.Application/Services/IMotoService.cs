@@ -8,4 +8,8 @@ public interface IMotoService
     Task<string> InsertMotoAsync(MotoInputModel model);
 
     Task<List<MotoViewModel>> GetAllAsync();
+
+    Task<MotoViewModel> GetByLicensePlateAsync(string licensePlate);
+
+    Task<string> UpdateLicensePlateAsync(string newLicensePlate, string licensePlate);
 }

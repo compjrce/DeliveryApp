@@ -16,12 +16,11 @@ public class MotoController : ControllerBase
     }
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<IActionResult> InsertMotoAsync(MotoInputModel model)
     {
-        var id = await _service.InsertMotoAsync(model);
+        var licensePlate = await _service.InsertMotoAsync(model);
 
-        return CreatedAtAction("", id);
+        return CreatedAtAction(nameof(GetByLicensePlateAsync), new { licensePlate }, model);
     }
 
     [HttpGet]
@@ -30,5 +29,16 @@ public class MotoController : ControllerBase
         var listMoto = await _service.GetAllAsync();
 
         return Ok(listMoto);
+    }
+
+    [HttpGet("{licensePlate}")]
+    public async Task<IActionResult> GetByLicensePlateAsync(string licensePlate)
+    {
+        var moto = await _service.GetByLicensePlateAsync(licensePlate);
+
+        if (moto == null)
+            return NotFound();
+
+        return Ok(moto);
     }
 }
