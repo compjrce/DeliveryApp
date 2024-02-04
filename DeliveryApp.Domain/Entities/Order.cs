@@ -12,5 +12,4 @@ public class Order : BaseEntity
 
     public double RideCost { get; private set; }
     public EOrderStatus Status { get; private set; }
-
 }
