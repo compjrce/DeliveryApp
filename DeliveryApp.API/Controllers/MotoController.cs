@@ -18,9 +18,9 @@ public class MotoController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> InsertAsync(MotoInputModel model)
     {
-        var licensePlate = await _service.InsertAsync(model);
+        var motoViewModel = await _service.InsertAsync(model);
 
-        return CreatedAtAction(nameof(GetByLicensePlateAsync), new { licensePlate = licensePlate });
+        return CreatedAtAction(nameof(GetByLicensePlateAsync), new { licensePlate = motoViewModel.LicensePlate }, motoViewModel);
     }
 
     [HttpGet]

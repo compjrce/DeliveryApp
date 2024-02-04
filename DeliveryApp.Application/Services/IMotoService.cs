@@ -5,7 +5,7 @@ namespace DeliveryApp.Application.Services;
 
 public interface IMotoService
 {
-    Task<string> InsertAsync(MotoInputModel model);
+    Task<MotoViewModel> InsertAsync(MotoInputModel model);
 
     Task<List<MotoViewModel>> GetAllAsync();
 

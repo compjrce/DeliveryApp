@@ -33,13 +33,13 @@ public class MotoService : IMotoService
         return MotoViewModel.FromEntity(moto);
     }
 
-    public async Task<string> InsertAsync(MotoInputModel model)
+    public async Task<MotoViewModel> InsertAsync(MotoInputModel model)
     {
         var moto = model.ToEntity();
 
         await _repository.InsertAsync(moto);
 
-        return moto.LicensePlate.ToString();
+        return MotoViewModel.FromEntity(moto);
     }
 
     public async Task UpdateLicensePlateAsync(string newLicensePlate, string licensePlate)
