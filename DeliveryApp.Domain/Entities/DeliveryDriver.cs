@@ -19,5 +19,5 @@ public class DeliveryDriver : BaseEntity
     public string DriverLicenseNumber { get; private set; }
     public EDriverLicenseType DriverLicenseType { get; private set; }
     public string DriverLicenseImage { get; set; }
-    public bool CategoryAEnabled => DriverLicenseType == EDriverLicenseType.A || DriverLicenseType == EDriverLicenseType.AB;
+    public bool CategoryIsEnabled => DriverLicenseType == EDriverLicenseType.A || DriverLicenseType == EDriverLicenseType.AB;
 }

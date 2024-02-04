@@ -20,7 +20,11 @@ public class MotoViewModel
     public string LicensePlate { get; private set; }
 
     public static MotoViewModel FromEntity(Moto moto) =>
-        new MotoViewModel(moto.Id, moto.CreatedOn, moto.Year, moto.Model, moto.LicensePlate);
+        new(moto.Id,
+            moto.CreatedOn,
+            moto.Year,
+            moto.Model,
+            moto.LicensePlate);
 
     public static List<MotoViewModel> FromEntity(List<Moto> listMoto)
     {
