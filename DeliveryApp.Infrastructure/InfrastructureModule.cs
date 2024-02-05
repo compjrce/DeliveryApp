@@ -16,8 +16,8 @@ public static class InfrastructureModule
     {
         services
             .AddMongo()
-            .AddRepositories()
-            .AddMessageBus();
+            .AddMessageBus()
+            .AddRepositories();
 
         return services;
     }
@@ -60,6 +60,7 @@ public static class InfrastructureModule
     {
         services.AddScoped<IMotoServiceRepository, MotoServiceRepository>();
         services.AddScoped<IDeliveryDriverServiceRepository, DeliveryDriverServiceRepository>();
+        services.AddScoped<IOrderServiceRepository, OrderServiceRepository>();
 
         return services;
     }

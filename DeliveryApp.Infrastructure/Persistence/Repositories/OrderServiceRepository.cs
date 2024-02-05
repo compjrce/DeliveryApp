@@ -13,6 +13,13 @@ public class OrderServiceRepository : IOrderServiceRepository
         _collection = database.GetCollection<Order>("order");
     }
 
+    public async Task<Order> GetByIdAsync(Guid id)
+    {
+        var filter = Builders<Order>.Filter.Eq(x => x.Id, id);
+
+        return await _collection.Find(filter).FirstOrDefaultAsync();
+    }
+
     public async Task InsertAsync(Order order)
     {
         await _collection.InsertOneAsync(order);

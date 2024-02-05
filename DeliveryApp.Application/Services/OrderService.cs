@@ -16,6 +16,16 @@ public class OrderService : IOrderService
         _messageBus = messageBus;
     }
 
+    public async Task<OrderViewModel?> GetByIdAsync(Guid id)
+    {
+        var order = await _repository.GetByIdAsync(id);
+
+        if (order == null)
+            return null;
+
+        return OrderViewModel.FromEntity(order);
+    }
+
     public async Task<OrderViewModel> InsertAsync(OrderInputModel model)
     {
         var order = model.ToEntity();
