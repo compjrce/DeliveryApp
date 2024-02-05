@@ -1,14 +1,15 @@
 using System.Text;
+using DeliveryApp.Domain.Messages;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 
-namespace DeliveryApp.Infrastructure.Messaging;
+namespace DeliveryApp.Infrastructure.Messaging.Publisher;
 
 public class RabbitMqService : IMessageBusService
 {
     private readonly IConnection _connection;
     private readonly IModel _channel;
-    private const string _exchange = "delivery-app-orders";
+    private const string _exchange = "delivery-app";
 
     public RabbitMqService()
     {

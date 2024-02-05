@@ -16,6 +16,7 @@ public static class ApplicationModule
     {
         services.AddScoped<IMotoService, MotoService>();
         services.AddScoped<IDeliveryDriverService, DeliveryDriverService>();
+        services.AddScoped<IOrderService, OrderService>();
 
         return services;
     }

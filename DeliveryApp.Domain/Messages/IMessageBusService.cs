@@ -1,4 +1,4 @@
-namespace DeliveryApp.Infrastructure.Messaging;
+namespace DeliveryApp.Domain.Messages;
 
 public interface IMessageBusService
 {

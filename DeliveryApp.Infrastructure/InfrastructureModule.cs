@@ -1,4 +1,6 @@
+using DeliveryApp.Domain.Messages;
 using DeliveryApp.Domain.Repositories;
+using DeliveryApp.Infrastructure.Messaging.Publisher;
 using DeliveryApp.Infrastructure.Persistence;
 using DeliveryApp.Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +16,8 @@ public static class InfrastructureModule
     {
         services
             .AddMongo()
-            .AddRepositories();
+            .AddRepositories()
+            .AddMessageBus();
 
         return services;
     }
@@ -57,6 +60,13 @@ public static class InfrastructureModule
     {
         services.AddScoped<IMotoServiceRepository, MotoServiceRepository>();
         services.AddScoped<IDeliveryDriverServiceRepository, DeliveryDriverServiceRepository>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddMessageBus(this IServiceCollection services)
+    {
+        services.AddScoped<IMessageBusService, RabbitMqService>();
 
         return services;
     }
