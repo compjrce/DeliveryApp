@@ -32,7 +32,7 @@ public class OrderService : IOrderService
 
         await _repository.InsertAsync(order);
 
-        _messageBus.Publish(order, "order-available");
+        _messageBus.Publish(order, "delivery-app");
 
         return OrderViewModel.FromEntity(order);
     }

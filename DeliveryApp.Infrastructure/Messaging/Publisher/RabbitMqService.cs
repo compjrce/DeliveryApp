@@ -9,7 +9,7 @@ public class RabbitMqService : IMessageBusService
 {
     private readonly IConnection _connection;
     private readonly IModel _channel;
-    private const string _exchange = "delivery-app";
+    private const string _queue = "delivery-app";
 
     public RabbitMqService()
     {
@@ -27,6 +27,17 @@ public class RabbitMqService : IMessageBusService
         var payload = JsonConvert.SerializeObject(data);
         var byteArray = Encoding.UTF8.GetBytes(payload);
 
-        _channel.BasicPublish(_exchange, routingKey, null, byteArray);
+        _channel.QueueDeclare(
+            queue: _queue,
+            durable: true,
+            exclusive: false,
+            autoDelete: false,
+            arguments: null);
+
+        _channel.BasicPublish(
+            exchange: string.Empty,
+            routingKey: routingKey,
+            basicProperties: null,
+            body: byteArray);
     }
 }
