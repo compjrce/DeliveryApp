@@ -1,15 +1,13 @@
-
-<h1 align="center">
+<h2 align="center">
   Delivery App
-</h1>
+</h2>
 
 <h4 align="center">Motorcycle Delivery Microservice.</h4>
 
 <p align="center">
-  <a href="#key-features">Getting Started</a> •
-  <a href="#how-to-use">Prerequisites</a> •
-  <a href="#download">Installation</a> •
-  <a href="#credits">Usage</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#prerequisites">Prerequisites</a> •
+  <a href="#installation">Installation</a> •
   <a href="#license">License</a>
 </p>
 
@@ -27,30 +25,15 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [.Net
 ## Installation
 ```bash
 # Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
+$ git clone https://github.com/compjrce/DeliveryApp.git
 
 # Go into the repository
-$ cd electron-markdownify
-
-# Install dependencies
-$ npm install
-
-# Run the app
-$ npm start
+$ cd DeliveryApp
+$ dotnet build
+$ cd DeliveryApp.API
+$ dotnet watch run
 ```
-
-You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux.
-
-## Usage
-
-Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
 
 ## License
 
 MIT
-
----
-
-> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
-> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
-> Twitter [@amit_merchant](https://twitter.com/amit_merchant)
