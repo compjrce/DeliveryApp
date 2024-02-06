@@ -15,14 +15,6 @@ public class MotoController : ControllerBase
         _service = service;
     }
 
-    [HttpPost]
-    public async Task<IActionResult> InsertAsync(MotoInputModel model)
-    {
-        var motoViewModel = await _service.InsertAsync(model);
-
-        return CreatedAtAction(nameof(GetByLicensePlateAsync), new { licensePlate = motoViewModel.LicensePlate }, motoViewModel);
-    }
-
     [HttpGet]
     public async Task<IActionResult> GetAllAsync()
     {
@@ -40,6 +32,14 @@ public class MotoController : ControllerBase
             return NotFound();
 
         return Ok(moto);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> InsertAsync(MotoInputModel model)
+    {
+        var motoViewModel = await _service.InsertAsync(model);
+
+        return CreatedAtAction(null, null);
     }
 
     [HttpPut("{licensePlate}")]

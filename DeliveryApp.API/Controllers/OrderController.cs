@@ -31,6 +31,6 @@ public class OrderController : ControllerBase
     {
         var orderViewModel = _service.InsertAsync(model);
 
-        return CreatedAtAction(nameof(GetByIdAsync), new { id = orderViewModel.Id }, orderViewModel);
+        return CreatedAtAction(null, null);
     }
 }
