@@ -1,4 +1,5 @@
 using DeliveryApp.Application.InputModels;
+using DeliveryApp.Application.ViewModels;
 using DeliveryApp.Domain.Repositories;
 
 namespace DeliveryApp.Application.Services;
@@ -10,6 +11,11 @@ public class DeliveryDriverService : IDeliveryDriverService
     public DeliveryDriverService(IDeliveryDriverServiceRepository repository)
     {
         _repository = repository;
+    }
+
+    public async Task<List<DeliveryDriverViewModel>> GetAllAsync()
+    {
+        return DeliveryDriverViewModel.FromEntity(await _repository.GetAllAsync());
     }
 
     public async Task<string> InsertAsync(DeliveryDriverInputModel model)

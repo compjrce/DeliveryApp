@@ -13,6 +13,13 @@ public class DeliveryDriverServiceRepository : IDeliveryDriverServiceRepository
         _collection = database.GetCollection<DeliveryDriver>("delivery-driver");
     }
 
+    public async Task<List<DeliveryDriver>> GetAllAsync()
+    {
+        var filter = Builders<DeliveryDriver>.Filter.Empty;
+
+        return await _collection.Find(filter).ToListAsync();
+    }
+
     public async Task InsertAsync(DeliveryDriver deliveryDriver)
     {
         await _collection.InsertOneAsync(deliveryDriver);

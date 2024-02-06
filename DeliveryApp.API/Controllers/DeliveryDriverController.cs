@@ -1,7 +1,6 @@
 using DeliveryApp.Application.InputModels;
 using DeliveryApp.Application.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace DeliveryApp.API.Controllers;
 
@@ -15,6 +14,14 @@ public class DeliveryDriverController : ControllerBase
     public DeliveryDriverController(IDeliveryDriverService service)
     {
         _service = service;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllAsync()
+    {
+        var listDeliveryDriver = _service.GetAllAsync();
+
+        return Ok(listDeliveryDriver);
     }
 
     [HttpPost]

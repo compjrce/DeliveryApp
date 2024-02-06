@@ -35,4 +35,23 @@ public class DeliveryDriverViewModel
             deliveryDriver.DriverLicenseNumber,
             deliveryDriver.DriverLicenseType,
             deliveryDriver.DriverLicenseImage);
+
+    public static List<DeliveryDriverViewModel> FromEntity(List<DeliveryDriver> deliveryDrivers)
+    {
+        List<DeliveryDriverViewModel> models = new();
+
+        foreach (var deliveryDriver in deliveryDrivers)
+        {
+            models.Add(new(deliveryDriver.Id,
+                            deliveryDriver.CreatedOn,
+                            deliveryDriver.Name,
+                            deliveryDriver.CNPJ,
+                            deliveryDriver.BirthDate,
+                            deliveryDriver.DriverLicenseNumber,
+                            deliveryDriver.DriverLicenseType,
+                            deliveryDriver.DriverLicenseImage));
+        }
+
+        return models;
+    }
 }

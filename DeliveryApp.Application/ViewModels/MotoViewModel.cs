@@ -26,15 +26,15 @@ public class MotoViewModel
             moto.Model,
             moto.LicensePlate);
 
-    public static List<MotoViewModel> FromEntity(List<Moto> listMoto)
+    public static List<MotoViewModel> FromEntity(List<Moto> motos)
     {
-        List<MotoViewModel> list = new();
+        List<MotoViewModel> models = new();
 
-        foreach (var item in listMoto)
+        foreach (var moto in motos)
         {
-            list.Add(new MotoViewModel(item.Id, item.CreatedOn, item.Year, item.Model, item.LicensePlate));
+            models.Add(new MotoViewModel(moto.Id, moto.CreatedOn, moto.Year, moto.Model, moto.LicensePlate));
         }
 
-        return list.ToList();
+        return models.ToList();
     }
 }

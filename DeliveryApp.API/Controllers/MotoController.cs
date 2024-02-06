@@ -55,6 +55,6 @@ public class MotoController : ControllerBase
     {
         await _service.DeleteAsync(licensePlate);
 
-        return Ok();
+        return NoContent();
     }
 }
