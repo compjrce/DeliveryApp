@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DeliveryApp.API.Controllers;
 
 [ApiController]
-[Route("moto")]
+[Route("motos")]
 public class MotoController : ControllerBase
 {
     private readonly IMotoService _service;

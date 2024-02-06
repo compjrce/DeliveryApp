@@ -15,7 +15,7 @@ public class DeliveryDriverService : IDeliveryDriverService
 
     public async Task<List<DeliveryDriverViewModel>> GetAllAsync()
     {
-        return DeliveryDriverViewModel.FromEntity(await _repository.GetAllAsync());
+        return DeliveryDriverViewModel.FromEntity(_repository.GetAllAsync().Result);
     }
 
     public async Task<string> InsertAsync(DeliveryDriverInputModel model)

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DeliveryApp.API.Controllers;
 
 [ApiController]
-[Route("delivery-driver")]
+[Route("delivery-drivers")]
 public class DeliveryDriverController : ControllerBase
 {
     private readonly IDeliveryDriverService _service;
@@ -19,7 +19,7 @@ public class DeliveryDriverController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllAsync()
     {
-        var listDeliveryDriver = _service.GetAllAsync();
+        var listDeliveryDriver = await _service.GetAllAsync();
 
         return Ok(listDeliveryDriver);
     }
@@ -52,7 +52,7 @@ public class DeliveryDriverController : ControllerBase
             await file.CopyToAsync(stream);
         }
 
-        return Ok();
+        return NoContent();
     }
 
 
